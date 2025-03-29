@@ -1,64 +1,70 @@
-# 🧪 Project Testing Overview
+# 🧪 Testing Guide for `tests/`
 
-This folder contains all automated tests for the project, including both unit tests and behavior-driven development (BDD) tests.
+This folder contains both traditional `pytest` tests and `behave` feature-based tests.
 
 ---
 
-## ✅ Test Frameworks
+## ✅ Pytest
 
-### 1. Pytest (Unit + Functional Testing)
-
-- Located in the root of `tests/` (e.g., `test_smoke.py`)
-- Used for:
-  - Verifying core logic and reusable components
-  - Fast, isolated, logic-driven tests
-  - Test coverage measurement (via `pytest-cov` if added)
-
-#### 🔧 Run All Pytest Tests:
+Run a specific file:
 ```bash
-pytest
+pytest tests/test_scan_api.py -v
+```
+
+Run all tests:
+```bash
+pytest -v
 ```
 
 ---
 
-### 2. Behave (Gherkin / BDD)
+## ✅ Behave (BDD-style)
 
-- Located in `tests/features/`
-- Used for:
-  - Describing behavior using Given/When/Then syntax
-  - Expanding user stories into testable feature specs
-  - Testing system-level workflows or interface behavior
-
-#### 🔧 Run All Behave Tests:
+Run all Gherkin tests:
 ```bash
-behave tests/features/
+behave
 ```
 
-#### 📁 Folder Layout:
-```bash
-tests/features/
-├── sample.feature           # Gherkin-based feature description
-├── steps/
-│   └── sample_steps.py      # Step definitions (Python bindings)
-├── environment.py           # Optional hooks (before_scenario, etc.)
+Feature files live in:
+```
+tests/features/*.feature
+```
+
+Step implementations live in:
+```
+tests/features/steps/
 ```
 
 ---
 
-## 📌 Best Practices
+## 🧪 Manual API Testing with `curl`
 
-| Topic | Practice |
-|-------|----------|
-| 🧱 Structure | Keep unit and BDD tests organized and separate |
-| 🔍 Naming | Use descriptive names for features and test files |
-| 🧪 Coverage | Favor pytest for logic-heavy components |
-| 🤝 Clarity | Favor behave for narrative-style interface scenarios |
-| 💡 Incrementality | Tie new requirements (`app_requirements.md`) to Gherkin features when possible |
+### 🎯 Get Full Scan:
+```bash
+curl "http://127.0.0.1:8000/scan?path=/Users/jseanw/Desktop/Pictures" | jq
+```
 
----
+### 🎯 Get Specific File:
+```bash
+curl "http://127.0.0.1:8000/scan/item?path=/Users/jseanw/Desktop/Pictures&target=/Users/jseanw/Desktop/Pictures/202301/20230102_114610.jpg" | jq
+```
 
-## 🚧 Future Enhancements
+Or use this safe format with URL encoding:
+```bash
+curl --get \
+  --data-urlencode "path=/Users/jseanw/Desktop/Pictures" \
+  --data-urlencode "target=/Users/jseanw/Desktop/Pictures/202301/20230102_114610.jpg" \
+  http://127.0.0.1:8000/scan/item | jq
+```
 
-- `conftest.py` for shared fixtures
-- `tox` or `nox` setup for matrix testing (optional)
-- Test result summary integration into CI
+You should see metadata like:
+```json
+{
+  "path": "/Users/jseanw/Desktop/Pictures/202301/20230102_114610.jpg",
+  "size_bytes": 3032485,
+  "modified": "2023-01-02T11:46:13",
+  "type": "image"
+}
+```
+
+404s or "not supported" mean the file is either missing, outside scope, or filtered.

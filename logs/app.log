@@ -1,0 +1,7 @@
+2025-03-29 01:37:19,271 — INFO — Scanning path: /Users/jseanw/Desktop/Pictures
+2025-03-29 01:37:19,302 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 01:37:19,304 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/nonexistent_file.jpg
+2025-03-29 01:37:53,891 — INFO — Scanning path: /Users/jseanw/Desktop/Pictures
+2025-03-29 01:37:53,940 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 01:37:53,943 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/nonexistent_file.jpg
+2025-03-29 01:38:39,939 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/202301/20230102_114610.jpg

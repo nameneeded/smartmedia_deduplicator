@@ -1,12 +1,13 @@
-import logging.config
-import yaml
-import os
+import logging
+from logging.handlers import TimedRotatingFileHandler
+from pathlib import Path
 
-def setup_logging(config_path="src/logging/logging_config.yaml"):
-    if not os.path.exists(config_path):
-        print(f"⚠️  Logging config not found at {config_path}")
-        return
+def setup_logging(log_file: str, level: str = "INFO", when: str = "midnight", backup_count: int = 7):
+    log_path = Path(log_file)
+    log_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(config_path, "r") as f:
-        config = yaml.safe_load(f)
-        logging.config.dictConfig(config)
+    handler = TimedRotatingFileHandler(log_file, when=when, backupCount=backup_count)
+    formatter = logging.Formatter("%(asctime)s — %(levelname)s — %(message)s")
+    handler.setFormatter(formatter)
+
+    logging.basicConfig(level=getattr(logging, level.upper()), handlers=[handler])

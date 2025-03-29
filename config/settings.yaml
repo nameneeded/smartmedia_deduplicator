@@ -1,0 +1,8 @@
+# config/settings.yaml
+
+default_scan_path: "/Users/sean/Desktop/Pictures"
+log_level: "INFO"
+log_file: "logs/api.log"
+log_rotation:
+  when: "midnight"
+  backupCount: 7
