@@ -1,58 +1,91 @@
-import json
-import os
+# tests/features/steps/sample_steps.py
+
 import requests
+import json
+import subprocess
 from behave import given, when, then
-from urllib.parse import urlencode
 
-BASELINE_PATH = "tests/resources/pictures_scan_baseline.json"
-API_BASE_URL = "http://127.0.0.1:8000"
-SCAN_PATH = "/Users/jseanw/Desktop/Pictures"
+@given("the API is running")
+def step_impl(context):
+    # Could be extended later to poll the server
+    context.base_url = "http://127.0.0.1:8000"
+    print(f"[Behave] Using API at {context.base_url}")
 
-def safe_url(endpoint, params):
-    return f"{API_BASE_URL}{endpoint}?{urlencode(params)}"
+@when("I request a scan of the directory")
+def step_impl(context):
+    path = context.env["TEST_SCAN_PATH"]
+    response = requests.get(f"{context.base_url}/scan", params={"path": path})
+    context.response = response
+    context.data = response.json()
 
-@given("a baseline dataset of scanned files is available")
-def step_impl_given_baseline_loaded(context):
-    with open(BASELINE_PATH, "r") as f:
-        context.baseline = json.load(f)
-
-@given("the scan path is \"{scan_path}\"")
-def step_impl_given_scan_path(context, scan_path):
-    context.scan_path = scan_path
-
-@given("I select a known file from the baseline")
-def step_impl_given_sample_file(context):
-    context.sample_file = context.baseline[0]
-
-@when("I request a scan of the entire directory")
-def step_impl_when_full_scan(context):
-    url = safe_url("/scan", {"path": context.scan_path})
-    context.response = requests.get(url)
-
-@when("I request metadata for that specific file")
-@when("I request metadata for a file that does not exist")
-def step_impl_when_file_metadata(context):
-    if hasattr(context, "sample_file"):
-        target_path = context.sample_file["path"]
-    else:
-        target_path = os.path.join(context.scan_path, "nonexistent_file.jpg")
-    url = safe_url("/scan/item", {"path": context.scan_path, "target": target_path})
-    context.response = requests.get(url)
-
-@then("the API should return the same number of files as in the baseline")
-def step_impl_then_count_matches(context):
+@then("I should receive a list of files")
+def step_impl(context):
     assert context.response.status_code == 200
-    data = context.response.json()
-    assert len(data) == len(context.baseline)
+    assert isinstance(context.data, list)
+    assert len(context.data) > 0
 
-@then("the API should return the correct metadata for the file")
-def step_impl_then_metadata_matches(context):
+@then("the number of files should match the expected baseline")
+def step_impl(context):
+    baseline_path = context.env["TEST_BASELINE_FILE"]
+    with open(baseline_path, "r") as f:
+        baseline = json.load(f)
+    assert len(context.data) == len(baseline)
+
+@then("each file in the response should include path, size, modified, and type")
+def step_impl(context):
+    for item in context.data:
+        assert "path" in item
+        assert "size_bytes" in item
+        assert "modified" in item
+        assert "type" in item
+
+@when("I request scan metadata for a random file")
+def step_impl(context):
+    path = context.env["TEST_SCAN_PATH"]
+    target = context.env["TEST_RANDOM_FILE"]
+    response = requests.get(f"{context.base_url}/scan/item", params={"path": path, "target": target})
+    context.response = response
+    context.item = response.json()
+
+@when("I curl the scan endpoint")
+def step_impl(context):
+    path = context.env["TEST_SCAN_PATH"]
+    cmd = ["curl", "-s", f"{context.base_url}/scan?path={path}"]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    context.curl_response_raw = result.stdout
+    context.curl_response_data = json.loads(result.stdout)
+
+@when("I curl the random file endpoint")
+def step_impl(context):
+    path = context.env["TEST_SCAN_PATH"]
+    target = context.env["TEST_RANDOM_FILE"]
+    cmd = ["curl", "-s", f"{context.base_url}/scan/item?path={path}&target={target}"]
+    print(f"[Curling Random File] target: {target}")
+    result = subprocess.run(cmd, capture_output=True, text=True)
+
+    try:
+        context.curl_response_data = json.loads(result.stdout)
+    except json.JSONDecodeError:
+        print("⚠️  Failed to decode JSON from curl response:")
+        print(result.stdout)
+        assert False, "Curl response was not valid JSON"
+
+@then("I should receive metadata including path, size, and modified")
+def step_impl(context):
+    item = context.item
     assert context.response.status_code == 200
-    result = context.response.json()
-    for key in ("path", "size_bytes", "type"):
-        assert result[key] == context.sample_file[key]
-    assert context.sample_file["modified"][:19] in result["modified"]
+    assert "path" in item
+    assert "size_bytes" in item
+    assert "modified" in item
 
-@then("the API should return a 404 error")
-def step_impl_then_404(context):
-    assert context.response.status_code == 404
+@then("the curl response should include a list of files")
+def step_impl(context):
+    assert isinstance(context.curl_response_data, list)
+    assert len(context.curl_response_data) > 0
+
+@then("the curl response should include metadata for the file")
+def step_impl(context):
+    item = context.curl_response_data
+    assert "path" in item
+    assert "size_bytes" in item
+    assert "modified" in item

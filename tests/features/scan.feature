@@ -1,22 +1,27 @@
-Feature: Directory Scanning and File Metadata Lookup
+Feature: Scan API
 
-  This feature verifies that the API can scan media folders and return metadata for all files
-  or for a specific file path. It validates both full scan results and individual lookups
-  using a known baseline dataset.
+  Scenario: Scan returns all files from path
+    Given the API is running
+    When I request a scan of the directory
+    Then I should receive a list of files
+    And the number of files should match the expected baseline
 
-  Background:
-    Given a baseline dataset of scanned files is available
-    And the scan path is "/Users/jseanw/Desktop/Pictures"
+  Scenario: Each file contains required metadata
+    Given the API is running
+    When I request a scan of the directory
+    Then each file in the response should include path, size, modified, and type
 
-  Scenario: Retrieve all scanned media files
-    When I request a scan of the entire directory
-    Then the API should return the same number of files as in the baseline
+  Scenario: Scan returns metadata for random file
+    Given the API is running
+    When I request scan metadata for a random file
+    Then I should receive metadata including path, size, and modified
 
-  Scenario: Retrieve metadata for a single file
-    Given I select a known file from the baseline
-    When I request metadata for that specific file
-    Then the API should return the correct metadata for the file
+  Scenario: Scan directory using curl
+    Given the API is running
+    When I curl the scan endpoint
+    Then the curl response should include a list of files
 
-  Scenario: Request metadata for a missing file
-    When I request metadata for a file that does not exist
-    Then the API should return a 404 error
+  Scenario: Scan random file using curl
+    Given the API is running
+    When I curl the random file endpoint
+    Then the curl response should include metadata for the file

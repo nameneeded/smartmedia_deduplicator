@@ -5,3 +5,41 @@
 2025-03-29 01:37:53,940 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
 2025-03-29 01:37:53,943 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/nonexistent_file.jpg
 2025-03-29 01:38:39,939 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/202301/20230102_114610.jpg
+2025-03-29 10:00:59,329 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/me_and_the_spinx.jpg
+2025-03-29 10:02:35,773 — INFO — Scanning path: /Users/jseanw/Desktop/Pictures
+2025-03-29 10:02:35,864 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 10:02:35,866 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/nonexistent_file.jpg
+2025-03-29 10:03:11,943 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:03:11,955 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 10:03:11,963 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/nonexistent_file.jpg
+2025-03-29 10:04:14,747 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:04:14,754 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 10:04:14,757 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/nonexistent_file.jpg
+2025-03-29 10:20:42,883 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:20:42,899 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003775.jpg
+2025-03-29 10:20:56,012 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:20:56,021 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003779.jpg
+2025-03-29 10:21:41,219 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003779.jpg
+2025-03-29 10:22:09,248 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:22:09,254 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 10:22:09,261 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/nonexistent_file.jpg
+2025-03-29 10:23:35,984 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:23:35,987 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/Pictures/20240404_063841.mp4
+2025-03-29 10:23:35,990 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/nonexistent_file.jpg
+2025-03-29 10:25:20,157 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:25:20,164 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:25:20,168 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003776.jpg
+2025-03-29 10:28:15,709 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:28:15,715 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:28:15,720 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003774 copy.jpg
+2025-03-29 10:28:15,730 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:29:53,030 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:29:53,033 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:29:53,036 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003774.jpg
+2025-03-29 10:29:53,045 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:29:53,056 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003774.jpg
+2025-03-29 10:30:35,603 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:30:35,606 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:30:35,608 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003778.jpg
+2025-03-29 10:30:35,616 — INFO — Scanning path: /Users/jseanw/Desktop/TRAINING_1-pics
+2025-03-29 10:30:35,625 — INFO — Requesting metadata for file: /Users/jseanw/Desktop/TRAINING_1-pics/1000003778.jpg

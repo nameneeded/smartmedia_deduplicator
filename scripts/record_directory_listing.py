@@ -3,8 +3,8 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-OUTPUT_PATH = Path("tests/resources/pictures_scan_baseline.json")
-TARGET_DIR = Path("/Users/jseanw/Desktop/Pictures")
+OUTPUT_PATH = Path("tests/resources/TRAINING_1-pics_scan_baseline.json")
+TARGET_DIR = Path("/Users/jseanw/Desktop/TRAINING_1-pics")
 
 SUPPORTED_IMAGE_EXT = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.webp'}
 SUPPORTED_VIDEO_EXT = {'.mp4', '.mov', '.avi', '.mkv', '.wmv', '.flv'}
