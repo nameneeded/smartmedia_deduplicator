@@ -1,0 +1,14 @@
+# === Core Dependency ===
+pyyaml>=6.0  # Enables YAML config parsing (used for logging setup)
+
+# === Code Quality ===
+black>=23.12.1
+isort>=5.12.0
+pre-commit>=3.6.0  # Hook runner and Git integration
+
+# === Testing Frameworks ===
+pytest>=7.0.0
+behave>=1.2.6  # Gherkin-style BDD support
+
+# === LLM Integration (Optional) ===
+openai>=1.12.0  # For assistant orchestration and file ingestion
