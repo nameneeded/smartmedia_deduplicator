@@ -1,0 +1,100 @@
+[
+  {
+    "files": [
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003771.jpg",
+        "name": "1000003771.jpg",
+        "decision": "keep",
+        "rotation": 0
+      },
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003771 copy.jpg",
+        "name": "1000003771 copy.jpg",
+        "decision": "uncertain",
+        "rotation": 0
+      }
+    ],
+    "weight": 24,
+    "index": 0,
+    "review": {
+      "summary": "mixed",
+      "reviewer": null,
+      "notes": null
+    }
+  },
+  {
+    "files": [
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/me_and_the_sphinx.jpg",
+        "name": "me_and_the_sphinx.jpg",
+        "decision": "keep",
+        "rotation": 0
+      },
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003779 copy.jpg",
+        "name": "1000003779 copy.jpg",
+        "decision": "delete",
+        "rotation": 0
+      },
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003779.jpg",
+        "name": "1000003779.jpg",
+        "decision": "keep",
+        "rotation": 0
+      }
+    ],
+    "weight": 8,
+    "index": 1,
+    "review": {
+      "summary": "dedup",
+      "reviewer": "Sean",
+      "notes": "1\n2\n\n4"
+    }
+  },
+  {
+    "files": [
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003774 copy.jpg",
+        "name": "1000003774 copy.jpg",
+        "decision": "delete",
+        "rotation": 270
+      },
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003774.jpg",
+        "name": "1000003774.jpg",
+        "decision": "keep",
+        "rotation": 270
+      }
+    ],
+    "weight": 4,
+    "index": 2,
+    "review": {
+      "summary": "dedup",
+      "reviewer": "Sean",
+      "notes": null
+    }
+  },
+  {
+    "files": [
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003776 copy.jpg",
+        "name": "1000003776 copy.jpg",
+        "decision": "delete",
+        "rotation": 0
+      },
+      {
+        "path": "/Users/jseanw/Desktop/TRAINING_1-pics/1000003776.jpg",
+        "name": "1000003776.jpg",
+        "decision": "keep",
+        "rotation": 0
+      }
+    ],
+    "weight": 4,
+    "index": 3,
+    "review": {
+      "summary": "dedup",
+      "reviewer": null,
+      "notes": "asdfasdf"
+    }
+  }
+]

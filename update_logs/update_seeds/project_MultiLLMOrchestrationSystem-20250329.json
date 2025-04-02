@@ -1,0 +1,92 @@
+{
+    "project": "MultiLLM-OrchestrationSystem",
+    "description": "A modular orchestration system for managing memory-aware, topic-specific LLMs coordinated through a central instance. Designed to maximize context retention, token efficiency, and adaptive collaboration across assistants.",
+    "modules": [
+      {
+        "name": "Charlar (Central LLM Coordinator)",
+        "purpose": "Holds user-facing memory, coordinates tasks across assistants, manages heuristic memory retention.",
+        "features": [
+          "Heuristic memory of user preferences and long-term context",
+          "Token stream optimization and summarization",
+          "Conversation routing and agent switching",
+          "Personality shaping and voice customization"
+        ]
+      },
+      {
+        "name": "Bitwise (Programming Assistant)",
+        "purpose": "Handles all code writing, refactoring, and logic implementation tasks.",
+        "features": [
+          "Works from structured seeds and project files",
+          "Communicates with Charlar via structured deltas",
+          "Uses semantic tagging of token streams",
+          "Assists with CLI tooling, APIs, and Python workflows"
+        ]
+      },
+      {
+        "name": "Schematicus (System Documentation Agent)",
+        "purpose": "Maintains architecture, sequence diagrams, and documentation from project structure.",
+        "features": [
+          "Uses Mermaid.js and Markdown",
+          "Maintains architecture.md, sequence.md, and philosophy.md",
+          "Coordinates with TalkyToaster for updates based on project actions"
+        ]
+      },
+      {
+        "name": "Logimus (Logging Agent)",
+        "purpose": "Captures system activity logs, assistant deltas, and execution notes.",
+        "features": [
+          "Writes structured logs (API events, assistant updates, seed changes)",
+          "Supports semantic log tagging (e.g., #refactor, #sync)",
+          "Integrates with GitHub-style commit flows"
+        ]
+      },
+      {
+        "name": "TalkyToaster (Coordinator Assistant, Non-LLM)",
+        "purpose": "Non-LLM routing and sync controller. Handles assistant communication, file handshakes, and orchestration logic.",
+        "features": [
+          "Rule-based LLM-to-LLM communication management",
+          "Avoids uncontrolled LLM chatter",
+          "Coordinates sync jobs, reseeds, and memory updates",
+          "Manages assistant delta and context_bundle workflows"
+        ]
+      }
+    ],
+    "core_concepts": [
+      "Token Streams",
+      "Abridged Tokens",
+      "Context Bundles",
+      "Heuristic Memory",
+      "Seed-Based Assistant Initialization",
+      "Delta Updates for Sync",
+      "Modular Topic Agents",
+      "Human-in-the-Loop Design"
+    ],
+    "workflow_summary": {
+      "user_entry": "Charlar",
+      "task_assignment": "Charlar decides and routes to Bitwise, Schematicus, or others",
+      "LLM_response": "Response is logged by Logimus and, if structural, sent to Schematicus",
+      "memory_sync": "TalkyToaster coordinates context updates between agents",
+      "fallback_support": "Fallback assistant model advisory logic available"
+    },
+    "file_conventions": {
+      "seeds": "seeds/*.json",
+      "project structure": "docs/project_structure.md",
+      "architecture": "docs/architecture.md",
+      "logs": "logs/api.log and logs/app.log",
+      "scripts": "scripts/ for CLI tooling and automation"
+    },
+    "active_files": [
+      "scripts/seed_init.py",
+      "scripts/rotate_logs.py",
+      "docs/bitwise_seed_yyyymmdd.json",
+      "docs/project_structure.md",
+      "logs/api.log"
+    ],
+    "next_steps": [
+      "Refactor seed sync delta logic to support memory diff by topic",
+      "Create TalkyToaster handshake protocol ruleset",
+      "Implement GitHub Actions for CI sync logs",
+      "Refine context_bundle tagging strategy for nested agents",
+      "Implement semantic garbage collection for old context"
+    ]
+  }

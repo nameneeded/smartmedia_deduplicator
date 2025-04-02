@@ -3,7 +3,7 @@ import datetime
 import shutil
 
 EXCLUDED_DIRS = {
-    '.git', 'venv', '.dogmatix', '.env', '__pycache__', 
+    '.git', 'venv', '.flash', '.env', '__pycache__', 
     '.pytest_cache', '.mypy_cache', 'node_modules', 'dist', 'build'
 }
 OUTPUT_FILE = "project_structure.md"

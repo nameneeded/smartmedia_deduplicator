@@ -1,10 +1,16 @@
-import os
-import json
+from src.utils.load_test_env import load_test_env
 from pathlib import Path
+import json
 from datetime import datetime
+from src.utils.file_scanner import scan_directory
 
-OUTPUT_PATH = Path("tests/resources/TRAINING_1-pics_scan_baseline.json")
-TARGET_DIR = Path("/Users/jseanw/Desktop/TRAINING_1-pics")
+env = load_test_env()
+
+TARGET_DIR = Path(env["TEST_SCAN_PATH"])
+OUTPUT_PATH = Path(env["TEST_BASELINE_FILE"])
+
+print(f"Scanning: {TARGET_DIR}")
+print(f"Saving to: {OUTPUT_PATH}")
 
 SUPPORTED_IMAGE_EXT = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.webp'}
 SUPPORTED_VIDEO_EXT = {'.mp4', '.mov', '.avi', '.mkv', '.wmv', '.flv'}

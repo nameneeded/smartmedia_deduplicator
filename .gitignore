@@ -1,0 +1,7 @@
+.gitignore
+.flash
+.pytest_cache
+__pycache__
+__init__.py
+
+docs/previous/*

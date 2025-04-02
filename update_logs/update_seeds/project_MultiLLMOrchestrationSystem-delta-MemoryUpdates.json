@@ -1,0 +1,33 @@
+{
+    "type": "delta_seed",
+    "target": "bitwise",
+    "source": "charlar",
+    "timestamp": "2025-03-30T10:43:00Z",
+    "summary": "Expanded memory architecture terminology and pointer model. Replaces 'bundle_pointer' with 'reference_pointer' and defines valid pointer targets.",
+    "changes": {
+      "memory_model": {
+        "reference_pointer": {
+          "type": "Link",
+          "purpose": "Acts as a semantic handle to internal, external, or cross-system entities.",
+          "valid_targets": [
+            "heuristic_memory.token_kernel",
+            "other_llm.memory_context",
+            "cold_storage/archives",
+            "external_url_or_api",
+            "real_world_entities (calendar, phone)",
+            "application_artifacts (git, tickets)"
+          ],
+          "note": "Enables normalization, context chaining, and minimal duplication in memory."
+        },
+        "terminology": {
+          "token_stream": "Raw sequence of tokens in vertical pipe.",
+          "token_bundle": "First semantic groupings from defragmentation.",
+          "token_kernel": "Normalized bundles after deduplication/normalization.",
+          "defrag_process": "Stream to bundle.",
+          "normalization_process": "Bundle to kernel with cleanup.",
+          "memory_compaction": "Full memory hygiene sweep."
+        }
+      }
+    },
+    "tags": ["memory_architecture", "reference_pointer", "bitwise_delta"]
+  }

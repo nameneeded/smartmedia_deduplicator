@@ -1,0 +1,35 @@
+[
+  {
+    "files": [
+      "1000003771.jpg",
+      "1000003771 copy.jpg"
+    ],
+    "weight": 24,
+    "index": 0
+  },
+  {
+    "files": [
+      "me_and_the_sphinx.jpg",
+      "1000003779 copy.jpg",
+      "1000003779.jpg"
+    ],
+    "weight": 8,
+    "index": 1
+  },
+  {
+    "files": [
+      "1000003774 copy.jpg",
+      "1000003774.jpg"
+    ],
+    "weight": 4,
+    "index": 2
+  },
+  {
+    "files": [
+      "1000003776 copy.jpg",
+      "1000003776.jpg"
+    ],
+    "weight": 4,
+    "index": 3
+  }
+]

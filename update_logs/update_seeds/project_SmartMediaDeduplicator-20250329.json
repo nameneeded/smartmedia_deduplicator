@@ -1,0 +1,61 @@
+{
+    "project_name": "SmartMedia Deduplicator",
+    "description": "A modular, API-first application for identifying and clustering duplicate or similar media files (images), using name, size, and metadata matching with weighting and scoring. Includes CLI tools and future UI integration.",
+    "status": "active",
+    "last_active": "2025-03-29",
+    "architecture": {
+      "core_modules": [
+        "scanner.py – Crawls filesystem for media files",
+        "matcher.py – Computes weighted similarity between media files",
+        "indexer.py – Orchestrates scanning, matching, and clustering",
+        "deduper.py – (planned) Handles deduplication decisions"
+      ],
+      "support_modules": [
+        "utils.py – Path cleaning, summarization, JSON safety",
+        "load_test_env.py – Environment config loader for test scaffolding",
+        "file_scanner.py – Utility scanner (shared with API)"
+      ],
+      "api_modules": [
+        "main.py – FastAPI entry point",
+        "scan.py – Scan route endpoint",
+        "match.py – (planned) Match preview or deduplication APIs",
+        "file_record.py – Pydantic model for file metadata"
+      ],
+      "orchestration": [
+        "logimus_agent.py – Logging assistant",
+        "schematicus_agent.py – System documentation assistant"
+      ],
+      "testing": [
+        "test_indexer.py – CLI test tool for match detection",
+        "features/scan.feature – BDD scan flow",
+        "test_scan_api.py – API-based scan test"
+      ]
+    },
+    "key_features": [
+      "Weighted scoring for similarity based on name, size, and time",
+      "Support for exact and fuzzy (1s window) timestamp match",
+      "Cluster summaries and JSON output to raw and sorted formats",
+      "Configurable via .env templates for different input folders"
+    ],
+    "output_files": [
+      "*_match_queues.json – raw output of clustered matches",
+      "*_match_sorted.json – sorted by weight and reasons"
+    ],
+    "priorities": [
+      "Add reason metadata to each cluster (done)",
+      "Fix .DS_Store exclusion (done)",
+      "Output pretty summary only, suppress verbose logs (done)",
+      "Modularize core logic – matcher/indexer/utils (done)",
+      "Enable file path rel from root (done)",
+      "Add optional BDD tests for full CLI and API (in progress)",
+      "Prepare UI flow for human-in-the-loop review (future)"
+    ],
+    "next_steps": [
+      "Tune scoring thresholds for more precise grouping",
+      "Expose scoring model via API for experimentation",
+      "Support clustering by camera metadata (lens/model) or visual hash",
+      "Wire deduplication logic for automated or manual decision-making",
+      "Enable export to training data for LLM or image classifier"
+    ],
+    "note": "All assistant context is token-local only; shared memory only stores that project is active with modular structure."
+  }
